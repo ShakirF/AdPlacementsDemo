@@ -12,7 +12,7 @@ A minimal **.NET 8** REST API that lets you upload a plain‑text list of adver
 | Web layer          | **ASP.NET Core** controllers                    |
 | DI & Logging       | Built‑in `Microsoft.Extensions.*`               |
 | API docs           | **Swashbuckle** / Swagger UI                    |
-| JSON               | **System.Text.Json** (no Newtonsoft dependency) |
+| JSON               | **System.Text.Json** |
 | Tests              | **xUnit**, **Moq**, `Microsoft.NET.Test.Sdk`    |
 
 ---
