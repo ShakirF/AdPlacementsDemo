@@ -8,7 +8,16 @@ namespace AdPlacements.Infrastructure.Repositories
         private readonly object _lock = new();
         private Dictionary<Location, List<string>> _index = new();
         public IReadOnlyCollection<string> FindByLocation(Location location)
-         => _index.TryGetValue(location, out var list) ? list : Array.Empty<string>();
+        {
+            var result = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+            
+                foreach (var prefix in location.GetPrefixes())      
+                       if (_index.TryGetValue(prefix, out var list))
+                           foreach (var p in list)
+                                    result.Add(p);
+            
+                return result.ToList();
+        }
 
         public void ReplaceAll(IEnumerable<AdPlatform> platforms)
         {
@@ -18,13 +27,10 @@ namespace AdPlacements.Infrastructure.Repositories
             {
                 foreach (var loc in p.Locations)
                 {
-                    foreach (var prefix in loc.GetPrefixes())
-                    {
-                        if (!newIndex.TryGetValue(prefix, out var list))
-                            newIndex[prefix] = list = [];
+                    if (!newIndex.TryGetValue(loc, out var list))
+                        newIndex[loc] = list = [];
 
-                        list.Add(p.Name);
-                    }
+                    list.Add(p.Name);
                 }
             }
 
