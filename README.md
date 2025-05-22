@@ -54,7 +54,7 @@ DOTNET_ENVIRONMENT=Development dotnet run
 
 ---
 
-## 📑 File format
+##  File format
 
 Each line: `PlatformName:location1[,location2…]`
 
