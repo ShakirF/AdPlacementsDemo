@@ -4,7 +4,7 @@ A minimal **.NET 8** REST API that lets you upload a plain‑text list of adver
 
 ---
 
-## 🛠 Technologies used
+##  Technologies used
 
 | Purpose            | Tech / Package                                  |
 | ------------------ | ----------------------------------------------- |
