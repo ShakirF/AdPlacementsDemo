@@ -29,16 +29,6 @@ tests/
  └─ AdPlacements.Tests/         # xUnit specs
 ```
 
----
-
-##  How it works
-
-| Stage                       | Complexity                           | Notes                                                                                                         |
-| --------------------------- | ------------------------------------ | ------------------------------------------------------------------------------------------------------------- |
-| **Upload** (`POST /upload`) | **O(S)** time, **O(L)** memory       | Reads the file once, stores each platform exactly at its declared locations.                                  |
-| **Search** (`GET /search`)  | **O(1)** time, **O(1)** extra memory | Walks the prefix chain of the requested path, merges results via `HashSet`. Depth ≤ 5 → effectively constant. |
-
----
 
 ##  Getting started
 
